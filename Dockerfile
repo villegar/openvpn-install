@@ -5,7 +5,7 @@ RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn openssl ca-certificates iptables curl
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn openssl ca-certificates iptables curl systemd
 
 COPY ./run.sh /opt/src/openvpn-install.sh
 RUN chmod 755 /opt/src/openvpn-install.sh
