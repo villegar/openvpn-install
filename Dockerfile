@@ -23,5 +23,5 @@ ENV OVPN_PROTOCOL=$OVPN_PROTOCOL
 EXPOSE $OVPN_PORT/udp
 
 CMD ["/opt/src/openvpn-install.sh"]
-CMD systemctl enable --now openvpn-iptables.service
-CMD systemctl enable --now openvpn-server@server.service
+# CMD systemctl enable --now openvpn-iptables.service
+# CMD systemctl enable --now openvpn-server@server.service
