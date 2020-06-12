@@ -5,7 +5,7 @@ RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get clean
 
-RUN apt-get install -y openvpn openssl ca-certificates iptables
+RUN apt-get install -y openvpn openssl ca-certificates iptables curl
 
 COPY ./run.sh /opt/src/openvpn-install.sh
 RUN chmod 755 /opt/src/openvpn-install.sh
