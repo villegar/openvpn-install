@@ -5,7 +5,8 @@ RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn openssl ca-certificates iptables curl systemd
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn openssl ca-certificates iptables curl 
+#systemd
 
 COPY ./run.sh /opt/src/openvpn-install.sh
 RUN chmod 755 /opt/src/openvpn-install.sh
@@ -22,7 +23,8 @@ ENV OVPN_PROTOCOL=$OVPN_PROTOCOL
 
 EXPOSE $OVPN_PORT/udp
 
-RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py -O /usr/local/bin/systemctl
+#RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py -O /usr/local/bin/systemctl
+RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py > /usr/local/bin/systemctl
 CMD ["/opt/src/openvpn-install.sh"]
 #ENTRYPOINT service /etc/systemd/system/openvpn-iptables.service restart && bash
 #ENTRYPOINT service openvpn-server@server.service restart && bash
