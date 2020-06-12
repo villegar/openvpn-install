@@ -4,8 +4,8 @@ LABEL maintainer="Roberto Villegas-Diaz <bthillo@gmail.com>"
 RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get clean
-RUN apt-get install -y apt-utils
-RUN apt-get install -y openvpn openssl ca-certificates iptables curl
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openvpn openssl ca-certificates iptables curl
 
 COPY ./run.sh /opt/src/openvpn-install.sh
 RUN chmod 755 /opt/src/openvpn-install.sh
