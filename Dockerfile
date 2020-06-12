@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 LABEL maintainer="Roberto Villegas-Diaz <bthillo@gmail.com>"
 
-RUN apt-get update && \
-    apt-get upgrade && \
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get clean
 
 COPY ./run.sh /opt/src/openvpn-install.sh
