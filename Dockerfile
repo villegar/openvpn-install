@@ -24,8 +24,9 @@ ENV OVPN_PROTOCOL=$OVPN_PROTOCOL
 EXPOSE $OVPN_PORT/udp
 
 #RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl.py -O /usr/local/bin/systemctl
-RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py > /usr/local/bin/systemctl
-RUN chmod 755 /usr/local/bin/systemctl
+RUN curl https://raw.githubusercontent.com/gdraheim/docker-systemctl-replacement/master/files/docker/systemctl3.py > /usr/bin/systemctl
+RUN chmod 755 /usr/bin//usr/local/bin/systemctl
+CMD which systemctl
 
 CMD ["/opt/src/openvpn-install.sh"]
 #ENTRYPOINT service /etc/systemd/system/openvpn-iptables.service restart && bash
