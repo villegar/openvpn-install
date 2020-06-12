@@ -8,6 +8,7 @@ RUN apt-get update && \
 COPY ./run.sh /opt/src/openvpn-install.sh
 RUN chmod 755 /opt/src/openvpn-install.sh
 
-EXPOSE 20000/udp
+ARG PORT=1194
+EXPOSE $PORT/udp
 
 CMD ["/opt/src/openvpn-install.sh"]
