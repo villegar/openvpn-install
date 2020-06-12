@@ -177,7 +177,7 @@ ExecStop=$iptables_path -D FORWARD -m state --state RELATED,ESTABLISHED -j ACCEP
 	echo "RemainAfterExit=yes
 [Install]
 WantedBy=multi-user.target" >> /etc/systemd/system/openvpn-iptables.service
-	systemctl enable --now openvpn-iptables.service
+	#systemctl enable --now openvpn-iptables.service
 
 	# client-common.txt is created so we have a template to add further users later
 	echo "client
@@ -195,7 +195,7 @@ ignore-unknown-option block-outside-dns
 block-outside-dns
 verb 3" > /etc/openvpn/server/client-common.txt
 	# Enable and start the OpenVPN service
-	systemctl enable --now openvpn-server@server.service
+	# systemctl enable --now openvpn-server@server.service
 	# Generates the custom client.ovpn
 	new_client
 	echo
